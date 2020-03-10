@@ -29,5 +29,6 @@ while c.isOpened():
     if key in [27,ord("q")]:
         break
 
+
 c.release()
 cv2.destroyAllWindows()
