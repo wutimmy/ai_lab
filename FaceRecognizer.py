@@ -148,6 +148,11 @@ class FaceRecognizer:
                     username = folder
                     self.users[username] = desc
 
+    # def load_user(self,path):
+    #     paths = os.listdir(path)
+    #     for fpath in paths:
+    #         if filename[-4:] == 'x'
+
     def recognize(self, color_image, multi_detect=0, threshold=0.4):
         faces = self.face_detect(color_image, multi_detect)
         for face in faces:
