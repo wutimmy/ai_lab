@@ -25,7 +25,7 @@ count = 0
 
 dc = FaceRecognizer.FaceRecognizer()
 
-c = cv2.VideoCapture(0)
+c = cv2.VideoCapture(-1)
 
 while c.isOpened():
     
