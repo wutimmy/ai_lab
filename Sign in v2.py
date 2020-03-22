@@ -7,13 +7,18 @@ import threading
 status = {}
 
 def send_mail(sender_email,sender_password,receiver_email,msg):
-    port = 465  # For SSL
+    port = 587  # For starttls
     smtp_server = "smtp.gmail.com"
-    message = msg
+    message = str(msg)
+
     context = ssl.create_default_context()
-    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+    with smtplib.SMTP(smtp_server, port) as server:
+        server.ehlo()  # Can be omitted
+        server.starttls(context=context)
+        server.ehlo()  # Can be omitted
         server.login(sender_email, sender_password)
         server.sendmail(sender_email, receiver_email, message)
+
 
 def get_name(faces):
     names = list()
@@ -23,7 +28,6 @@ def get_name(faces):
         else:
             names.append(face["display_name"])
     return names
-
 def send_status(names,status):
     for name in names:
         person_status = status[str(name)]
@@ -36,6 +40,8 @@ def send_status(names,status):
             #     a.append(t.)
 
         for adr in txt:
+            if "@" not in adr:
+                continue
             if person_status:
                 send_mail("wutimmy01@gmail.com", "Wulokhin2006",adr,"{} has entered the lab.".format(name))
             else:
@@ -47,7 +53,7 @@ def process(faces,status):
         if name in status.keys():
             status[name] = False
         else:
-            status[name] = False
+            status[name] = True
         send_status(names,status)
     
 
@@ -78,6 +84,7 @@ while c.isOpened():
 
     cv2.imshow("Test",frame)
 
+    print(status)
 
     key = cv2.waitKey(13)
 
