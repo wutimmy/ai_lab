@@ -3,8 +3,32 @@ import FaceRecognizer
 import os
 import smtplib, ssl
 import threading
+import sqlite3
 
 status = {}
+
+def db_user_status(user_status):
+    conn = sqlite3.connect("test.sqlite3")
+    global name
+    if user_status:
+        status[name] = False
+        conn.execute("UPDATE user SET outtime=CURRENT_TIMESTAMP WHERE name={}".format(name))
+        conn.execute("UPDATE user SET status=False WHERE name={}".format(name))
+    elif not user_status:
+        status[name] = True
+        conn.execute("UPDATE user SET intime=CURRENT_TIMESTAMP WHERE name={}".format(name))
+        conn.execute("UPDATE user SET status=True WHERE name={}".format(name))
+    conn.commit()
+    conn.close()
+def check_exist(cursor,target):
+    print("target : {}".format(target))
+    target = str(target)
+    for i in cursor:
+        for g in i:
+            g = str(g)
+            if target in g:
+                return True
+    return False
 
 def send_mail(sender_email,sender_password,receiver_email,msg):
     port = 587  # For starttls
@@ -49,12 +73,20 @@ def send_status(names,status):
 
 def process(faces,status):
     names = get_name(faces)
+    conn = sqlite3.connect("test.sqlite3")
     for name in names:
-        if name in status.keys():
-            status[name] = False
-        else:
-            status[name] = True
+        user_status = status.get("message", "")
+        all = conn.execute("select * from user")
+        if check_exist(all,name):
+            db_user_status(user_status)
+        elif check_exist(all,name) is False:
+            conn.execute("INSERT INTO user (name) VALUES ('test')".format(name,user_status))
+            db_user_status(user_status)
         send_status(names,status)
+    info = conn.execute("select * from user")
+    for i in info:
+        print(i)
+    conn.close()
     
 
 dc = FaceRecognizer.FaceRecognizer()
@@ -93,10 +125,12 @@ while c.isOpened():
 
     task = threading.Thread(target=process,args=(faces,status))
     task.start()
-
-    while len(dc.face_detect(color_image,multi_detect=1)) != 0:
+    face1 = dc.face_detect(color_image,multi_detect=1
+    while len(face1)) != 0:
+        face1 = dc.face_detect(color_image,multi_detect=1
         print("waiting...")
         _,frame = c.read()
+        cv2.imshow("Test",frame)
         color_image = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
 
 
