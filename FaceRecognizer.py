@@ -112,32 +112,37 @@ class FaceRecognizer:
         return image
 
     def calc_128D_by_path(self, path, export=False):
-            descriptions = []
-            filenames = os.listdir(os.getcwd())
-            for filename in filenames:
-                if filename[-4:] != '.jpg': continue
+        dirs = os.listdir(path)
+        for folder in dirs:
+            for a, b, filenames in os.walk(path+"//"+str(folder)):
+                print("--------------------")
+                print(a, "|", b, "|", filenames)
+                descriptions = []
 
-                image = cv2.imread("%s/%s" % (path, filename), cv2.IMREAD_COLOR)
-                color_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-                faces = self.face_detect(color_image,multi_detect=0)
-                print("---------------------------")
-                print(len(faces))
-                print("---------------------------")
-                for face in faces:
-                    face = self.face_shape(color_image, face)
-                    face = self.face_description(color_image, face)
-                    descriptions.append(face['description'])
+                for filename in filenames:
+                    print()
+                    print("File : {}".format(filename))
+                    if filename[-4:] != '.jpg': continue
+
+                    # image = cv2.imread("%s/%s" % (path, filename), cv2.IMREAD_COLOR) #
+                    image = cv2.imread(path+"//"+folder+"//"+filename)
+                    color_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+                    faces = self.face_detect(color_image)
+                    for face in faces:
+                        face = self.face_shape(color_image, face)
+                        face = self.face_description(color_image, face)
+                        descriptions.append(face['description'])
 
             desc = np.average(descriptions, axis=0)
 
             if export:
-                writer = pd.ExcelWriter(path + os.sep + self.description_filename, engine='xlsxwriter')
+                writer = pd.ExcelWriter(path+"//"+folder+"//" + self.description_filename, engine='xlsxwriter')
                 data = pd.DataFrame(desc)
                 data.to_excel(writer, '128D', float_format='%.9f')
                 writer.save()
 
-                return desc
-            return None
+            return desc
+        return None
 
     def load_users(self, path):
         for _, folders, _ in os.walk(path):
@@ -149,6 +154,11 @@ class FaceRecognizer:
                     desc = np.array(desc).reshape(1, -1)[0]
                     username = folder
                     self.users[username] = desc
+
+    # def load_user(self,path):
+    #     paths = os.listdir(path)
+    #     for fpath in paths:
+    #         if filename[-4:] == 'x'
 
     def recognize(self, color_image, multi_detect=0, threshold=0.4):
         faces = self.face_detect(color_image, multi_detect)
