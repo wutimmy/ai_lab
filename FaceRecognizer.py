@@ -112,15 +112,17 @@ class FaceRecognizer:
         return image
 
     def calc_128D_by_path(self, path, export=False):
-        for _, _, filenames in os.walk(path):
             descriptions = []
-
+            filenames = os.listdir(os.getcwd())
             for filename in filenames:
                 if filename[-4:] != '.jpg': continue
 
                 image = cv2.imread("%s/%s" % (path, filename), cv2.IMREAD_COLOR)
                 color_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-                faces = self.face_detect(color_image)
+                faces = self.face_detect(color_image,multi_detect=0)
+                print("---------------------------")
+                print(len(faces))
+                print("---------------------------")
                 for face in faces:
                     face = self.face_shape(color_image, face)
                     face = self.face_description(color_image, face)
@@ -134,8 +136,8 @@ class FaceRecognizer:
                 data.to_excel(writer, '128D', float_format='%.9f')
                 writer.save()
 
-            return desc
-        return None
+                return desc
+            return None
 
     def load_users(self, path):
         for _, folders, _ in os.walk(path):

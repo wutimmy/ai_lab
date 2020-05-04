@@ -8,6 +8,7 @@ while c.isOpened():
         break
     color_image=cv2.cvtColor(f, cv2.COLOR_BGR2RGB)
     faces=dc.face_detect(color_image)
+    faces=dc.faces_shape(color_image,faces)
     f=dc.draw_faces(f,faces)
     cv2.imshow("test",f)
     key=cv2.waitKey(13)
