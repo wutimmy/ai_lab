@@ -112,20 +112,20 @@ class FaceRecognizer:
         return image
 
     def calc_128D_by_path(self, path, export=False):
-        dirs = os.listdir(path)
-        for folder in dirs:
-            for a, b, filenames in os.walk(path+"//"+str(folder)):
-                print("--------------------")
-                print(a, "|", b, "|", filenames)
+                dirs = os.listdir(path)
+        # for folder in dirs:
+        #     for a, b, filenames in os.walk(path+"//"+str(folder)):
+        #         print("--------------------")
+        #         print(a, "|", b, "|", filenames)
                 descriptions = []
 
-                for filename in filenames:
+                for filename in dirs:
                     print()
                     print("File : {}".format(filename))
                     if filename[-4:] != '.jpg': continue
 
                     # image = cv2.imread("%s/%s" % (path, filename), cv2.IMREAD_COLOR) #
-                    image = cv2.imread(path+"//"+folder+"//"+filename)
+                    image = cv2.imread(path+"/"+filename)
                     color_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
                     faces = self.face_detect(color_image)
                     for face in faces:
@@ -133,16 +133,16 @@ class FaceRecognizer:
                         face = self.face_description(color_image, face)
                         descriptions.append(face['description'])
 
-            desc = np.average(descriptions, axis=0)
+                desc = np.average(descriptions, axis=0)
 
-            if export:
-                writer = pd.ExcelWriter(path+"//"+folder+"//" + self.description_filename, engine='xlsxwriter')
-                data = pd.DataFrame(desc)
-                data.to_excel(writer, '128D', float_format='%.9f')
-                writer.save()
+                if export:
+                    writer = pd.ExcelWriter(path+"/"+ self.description_filename, engine='xlsxwriter')
+                    data = pd.DataFrame(desc)
+                    data.to_excel(writer, '128D', float_format='%.9f')
+                    writer.save()
 
-            return desc
-        return None
+                    return desc
+                return None
 
     def load_users(self, path):
         for _, folders, _ in os.walk(path):

@@ -30,7 +30,7 @@ def create_user_folder():
     n=random.randint(0,1000)
     user_name = "Person_.{}".format(n)
     global base_user_path
-    user_path = base_user_path+"/{}".format(n)
+    user_path = base_user_path+"/{}".format(user_name)
     if os.path.exists(user_path):
         return
     try:
