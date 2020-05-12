@@ -1,6 +1,6 @@
 import cv2
 
-c=cv2.VideoCapture(-1)
+c=cv2.VideoCapture(0)
 
 while c.isOpened():
     s,f=c.read()

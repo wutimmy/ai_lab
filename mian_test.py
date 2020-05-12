@@ -2,11 +2,10 @@ import cv2
 import os
 import func
 import FaceRecognizer
-from threading import Thread
-from mail_test import send_mail
+import multiprocessing
 
-def hi():
-    print("hi")
+process=[]
+
 
 base_user_path=os.getcwd()+"\\user"
 dc=FaceRecognizer.FaceRecognizer()
@@ -21,9 +20,15 @@ while c.isOpened():
     faces = dc.recognize(color_image,multi_detect=1)
     f=dc.draw_faces(f,faces)
     names = func.print_usr_name(faces)
+    print(names)
     for name in names:
-        thread = Thread(target = send_mail, args = ("{}".format(name), ))
-        thread.start()
+        # if name == "unknown":
+        #     continue
+        p = multiprocessing.Process(target=func.update_user_status,args=(base_user_path,name,))
+        process.append(p)
+        p.start()
+        p.join()
+        # func.send_user_mail(base_user_path,name)
         # TODO : Read user info and send mail to user and user's parent
     cv2.imshow("test",f)
     key=cv2.waitKey(1)

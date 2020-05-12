@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 
 
+
 class FaceRecognizer:
 
     def __init__(self, shape_dat='', face_dat=''):
@@ -173,7 +174,7 @@ class FaceRecognizer:
                 dists[key] = dist
 
             dists_sorted = sorted(dists.items(), key=lambda d: d[1])
-            print(dists_sorted)
+            # print(dists_sorted)
 
             if len(dists_sorted) > 0:
                 if dists_sorted[0][1] < threshold:
