@@ -20,9 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ba2f2ea-c1b9-4a2b-92bd-3ab99779491c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app_main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/func.py" beforeDir="false" afterPath="$PROJECT_DIR$/func.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/users.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mian.py" beforeDir="false" afterPath="$PROJECT_DIR$/mian_old.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mian_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +35,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -49,6 +52,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/user/Person_.907/info.csv" />
@@ -60,7 +64,7 @@
       <recent name="C:\Users\wutim\Documents\coding ws\ai_lab" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.mian_test">
+  <component name="RunManager" selected="Python.app_main">
     <configuration name="Python" type="PythonConfigurationType" factoryName="Python">
       <module name="ai_lab" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -74,6 +78,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="app_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ai_lab" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app_main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -124,7 +149,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mail_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ai_lab" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -136,28 +161,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mail_test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="mian_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="ai_lab" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mian_test.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\wutim\Documents\coding ws\ai_lab\main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -189,11 +193,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.mian_test" />
+        <item itemvalue="Python.app_main" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.func" />
         <item itemvalue="Python.db_test" />
         <item itemvalue="Python.user_register" />
-        <item itemvalue="Python.mail_test" />
       </list>
     </recent_temporary>
   </component>
@@ -230,7 +234,8 @@
     <MESSAGE value="working on main.py mail sending feature" />
     <MESSAGE value="Working on Main functions" />
     <MESSAGE value="nearly finished...." />
-    <option name="LAST_COMMIT_MESSAGE" value="nearly finished...." />
+    <MESSAGE value="Finished Sign-in and out part, now start working on website" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Sign-in and out part, now start working on website" />
   </component>
   <component name="WindowStateProjectService">
     <state x="650" y="137" key="#Python" timestamp="1588585163474">
@@ -251,30 +256,30 @@
     <state x="747" y="304" key="FileChooserDialogImpl/0.0.1920.1050/0.-1080.1920.1050@0.0.1920.1050" timestamp="1588841930846" />
     <state x="747" y="304" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1589273978216" />
     <state x="747" y="313" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1588585204793" />
-    <state width="1899" height="275" key="GridCell.Tab.0.bottom" timestamp="1589345287825">
+    <state width="1899" height="275" key="GridCell.Tab.0.bottom" timestamp="1589345547531">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1899" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1050/0.-1080.1920.1050@0.-1080.1920.1050" timestamp="1588925978309" />
     <state width="1899" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1050/0.-1080.1920.1050@0.0.1920.1050" timestamp="1589103204175" />
-    <state width="1899" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1589345287825" />
-    <state width="1899" height="275" key="GridCell.Tab.0.center" timestamp="1589345287825">
+    <state width="1899" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1589345547531" />
+    <state width="1899" height="275" key="GridCell.Tab.0.center" timestamp="1589345547531">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1899" height="275" key="GridCell.Tab.0.center/0.0.1920.1050/0.-1080.1920.1050@0.-1080.1920.1050" timestamp="1588925978308" />
     <state width="1899" height="275" key="GridCell.Tab.0.center/0.0.1920.1050/0.-1080.1920.1050@0.0.1920.1050" timestamp="1589103204175" />
-    <state width="1899" height="275" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1589345287825" />
-    <state width="1899" height="275" key="GridCell.Tab.0.left" timestamp="1589345287825">
+    <state width="1899" height="275" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1589345547531" />
+    <state width="1899" height="275" key="GridCell.Tab.0.left" timestamp="1589345547531">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1899" height="275" key="GridCell.Tab.0.left/0.0.1920.1050/0.-1080.1920.1050@0.-1080.1920.1050" timestamp="1588925978308" />
     <state width="1899" height="275" key="GridCell.Tab.0.left/0.0.1920.1050/0.-1080.1920.1050@0.0.1920.1050" timestamp="1589103204175" />
-    <state width="1899" height="275" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1589345287825" />
-    <state width="1899" height="275" key="GridCell.Tab.0.right" timestamp="1589345287825">
+    <state width="1899" height="275" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1589345547531" />
+    <state width="1899" height="275" key="GridCell.Tab.0.right" timestamp="1589345547531">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1899" height="275" key="GridCell.Tab.0.right/0.0.1920.1050/0.-1080.1920.1050@0.-1080.1920.1050" timestamp="1588925978309" />
     <state width="1899" height="275" key="GridCell.Tab.0.right/0.0.1920.1050/0.-1080.1920.1050@0.0.1920.1050" timestamp="1589103204175" />
-    <state width="1899" height="275" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1589345287825" />
+    <state width="1899" height="275" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1589345547531" />
     <state x="540" y="259" key="IDE.errors.dialog" timestamp="1589272673363">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -284,12 +289,12 @@
     </state>
     <state x="461" y="-911" key="SettingsEditor/0.0.1920.1050/0.-1080.1920.1050@0.-1080.1920.1050" timestamp="1588859255944" />
     <state x="461" y="169" key="SettingsEditor/0.0.1920.1050/0.-1080.1920.1050@0.0.1920.1050" timestamp="1588842397700" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1589277643383">
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1589345687772">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="552" y="-823" key="Vcs.Push.Dialog.v2/0.0.1920.1050/0.-1080.1920.1050@0.-1080.1920.1050" timestamp="1588864119780" />
     <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/0.-1080.1920.1050@0.0.1920.1050" timestamp="1588931030304" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1589277643383" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1589345687772" />
     <state x="758" y="213" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588844554572">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
