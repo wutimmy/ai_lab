@@ -82,23 +82,25 @@ def update_user_status(base_user_path, username):
         sql = "insert into users values('{}',{},'{}','{}');".format(username, int(status[username]), str(datetime.datetime.now()), "null")
         print(sql)
         conn.execute(sql)
+        new.append(username)
         # usr_time[username][str(datetime.datetime.now()), str(datetime.datetime.now())] 
         # usr_time.update({username:})
         # t = {str(username):[str(datetime.datetime.now()), str(datetime.datetime.now())]}
         # usr_time.update(t)
 
         new.append(username)
+        conn.commit()
     elif username in status and status[username]:
         status[username] = False
         # tmp = usr_time[username][0]
-        sql = "SELECT 'In' from Users WHERE Name='{}'".format(username)
+        sql = 'SELECT "In" from Users WHERE Name="{}"'.format(username)
         print(sql)
         data = conn.execute(sql)
         for i in data:
             tmp = i[0]
         print(tmp)
         conn.commit()
-        sql = "insert into users values('{}','{}','{}','{}');".format(username, int(status[username]), tmp, str(datetime.datetime.now()),"null")
+        sql = 'update users set Name="{}",status="{}", "In"="{}","Out"="{}";'.format(username, int(status[username]),str(tmp),str(datetime.datetime.now()) )
         # print(sql)
         print(sql)
         conn.execute(sql)
@@ -106,12 +108,12 @@ def update_user_status(base_user_path, username):
     elif username in status and not status[username]:
         status[username] = True
         # tmp = usr_time[username][1]
-        sql = "SELECT 'Out' from Users WHERE Name='{}'".format(username)
+        sql = 'SELECT "Out" from Users WHERE Name="{}"'.format(username)
         data = conn.execute(sql)
         for i in data:
             tmp = i[0]
         # usr_time[username] = [str(datetime.datetime.now()), str(tmp)]
-        sql = "insert into users values('{}',{},'{}','{}');".format(username, int(status[username]),str(datetime.datetime.now()) , str(tmp))
+        sql = 'update users set Name="{}",status="{}", "In"="{}","Out"="{}";'.format(username, int(status[username]),str(datetime.datetime.now()),str(tmp))
         print(sql)
         conn.execute(sql)
         conn.commit()
@@ -128,5 +130,4 @@ def update_user_status(base_user_path, username):
     #                   message="Your record have recorded successfully, enjoy your work !")
     #     except:
     #         pass
-    conn.commit()
     conn.close()
