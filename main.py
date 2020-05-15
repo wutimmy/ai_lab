@@ -7,6 +7,8 @@ import multiprocessing
 process = []
 
 
+
+
 def processs(target, args=tuple):
     p = multiprocessing.Process(target=target, args=args)
     # process.append(p)
@@ -22,6 +24,8 @@ while c.isOpened():
     s, f = c.read()
     if not s:
         break
+
+
     color_image = cv2.cvtColor(f, cv2.COLOR_BGR2RGB)
     faces = dc.face_detect(color_image)
     faces = dc.recognize(color_image, multi_detect=1)
@@ -36,9 +40,10 @@ while c.isOpened():
         p = multiprocessing.Process(target=func.update_user_status, args=(base_user_path, name,))
         # process.append(p)
         p.start()
-        p.join()
+        # p.join()
         # func.send_user_mail(base_user_path,name)
         # TODO : Read user info and send mail to user and user's parent
+
 
     key = cv2.waitKey(1)
     if key in (32, 27):

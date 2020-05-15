@@ -1,13 +1,6 @@
-from threading import Thread
-from time import sleep
-
-def threaded_function(arg):
-    for i in range(arg):
-        print("running")
-        sleep(1)
-
-
-if __name__ == "__main__":
-    for i in range(10):
-
-    print("thread finished...exiting")
+with open("config.ini",mode="r") as f:
+        a = f.readline()
+        a = a.split("=")[1]
+        a = a.replace("/n","")
+        a = a.replace("/t","")
+        a = int(a)

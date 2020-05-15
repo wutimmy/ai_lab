@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h2>Student info</h2>
+
+<table style="width:100%">
+	<tr>
+		<th>Student Name</th>
+		<th>In lab status</th>
+		<th>Last check in time</th>
+		<th>Last check out time</th>
+	</tr>
+	{%for i in range(0, lent)%}
+		<tr>
+    		<td>{{test[i][0]}}</td>
+    		<td>{{test[i][1]}}</td>
+    		<td>{{test[i][2]}}</td>
+			<td>{{test[i][3]}}</td>
+  		</tr>
+	{%endfor%}
+</table>
+
+</body>
+</html>
